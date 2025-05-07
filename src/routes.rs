@@ -7,7 +7,7 @@ use axum::{extract::{Path, State},response::IntoResponse, routing::{get, post}, 
 use serde::{Deserialize, Serialize};
 use std::sync::{Arc, Mutex};
 use crate::graph::{CommunityGraph, ConnectionType, User};
-use crate::errors::{AppError};
+use crate::errors::AppError;
 
 type AppState = Arc<Mutex<CommunityGraph>>;
 
