@@ -3,7 +3,12 @@
 // It uses Axum for routing and Serde for JSON serialization/deserialization.
 // It also includes error handling for various operations.
 // It is designed to be modular and reusable, with a focus on clean code and separation of concerns.
-use axum::{extract::{Path, State},response::{Html, IntoResponse}, routing::{get, post}, Json, Router};
+use axum::{
+    extract::{Path, State},
+    response::{Html, IntoResponse},
+    routing::{get, post},
+    Json, Router,
+};
 use serde::{Deserialize, Serialize};
 use std::sync::{Arc, Mutex};
 use crate::graph::{CommunityGraph, ConnectionType, User};
@@ -16,10 +21,10 @@ pub fn routes() -> Router {
     Router::new()
         .route("/", get(root))
         .route("/users", post(add_user))
-        .route("/users/:username", get(get_user))
+        .route("/users/{username}", get(get_user)) 
         .route("/connections", post(connect_users))
-        .route("/users/:username/recommendations", get(get_recommendations))
-        .route("/interests/:interest/users", get(find_users_by_interest))
+        .route("/users/{username}/recommendations", get(get_recommendations))  
+        .route("/interests/{interest}/users", get(find_users_by_interest)) 
         .with_state(graph)
 }
 
