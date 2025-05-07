@@ -17,6 +17,17 @@ pub enum AppError {
     InternalError(String),
 }
 
+impl AppError {
+    pub fn status_code(&self) -> StatusCode {
+        match self {
+            AppError::UserNotFound(_) => StatusCode::NOT_FOUND,
+            AppError::UserAlreadyExists(_) => StatusCode::CONFLICT,
+            AppError::ConnectionFailed(_) => StatusCode::BAD_REQUEST,
+            AppError::InternalError(_) => StatusCode::INTERNAL_SERVER_ERROR,
+        }
+    }
+}
+
 impl fmt::Display for AppError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
