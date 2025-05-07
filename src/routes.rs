@@ -3,7 +3,7 @@
 // It uses Axum for routing and Serde for JSON serialization/deserialization.
 // It also includes error handling for various operations.
 // It is designed to be modular and reusable, with a focus on clean code and separation of concerns.
-use axum::{extract::{Path, State},response::IntoResponse, routing::{get, post}, Json, Router};
+use axum::{extract::{Path, State},response::{Html, IntoResponse}, routing::{get, post}, Json, Router};
 use serde::{Deserialize, Serialize};
 use std::sync::{Arc, Mutex};
 use crate::graph::{CommunityGraph, ConnectionType, User};
@@ -275,7 +275,7 @@ cargo run --release</code></pre>
         
         <p>The server will start at <code>http://127.0.0.1:3000</code></p>
         
-        <a href="https://github.com/your-username/rustafari" class="cta">Get Started on GitHub</a>
+        <a href="https://github.com/Muchangi001/rustafari" class="cta">Get Started on GitHub</a>
         
         <footer>
             <p>This project is licensed under the MIT License</p>
