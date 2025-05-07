@@ -268,7 +268,7 @@ async fn root() -> Html<String> {
         </ul>
         
         <h3>Installation</h3>
-        <pre><code>git clone https://github.com/your-username/rustafari.git
+        <pre><code>git clone https://github.com/Muchangi001/rustafari.git
 cd rustafari
 cargo build --release
 cargo run --release</code></pre>
