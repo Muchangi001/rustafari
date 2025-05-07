@@ -1,8 +1,13 @@
+// Description: This file contains the routes for the Axum web server.
+// It defines the API endpoints for user management and connection handling.
+// It uses Axum for routing and Serde for JSON serialization/deserialization.
+// It also includes error handling for various operations.
+// It is designed to be modular and reusable, with a focus on clean code and separation of concerns.
 use axum::{extract::{Path, State},response::IntoResponse, routing::{get, post}, Json, Router};
 use serde::{Deserialize, Serialize};
 use std::sync::{Arc, Mutex};
 use crate::graph::{CommunityGraph, ConnectionType, User};
-use crate::errors::{AppError, Result};
+use crate::errors::{AppError};
 
 type AppState = Arc<Mutex<CommunityGraph>>;
 

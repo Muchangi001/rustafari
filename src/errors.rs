@@ -1,3 +1,8 @@
+// This module defines custom error types for the application.
+// It includes error handling for user-related operations and connection issues.
+// It also implements the `IntoResponse` trait for converting errors into HTTP responses.
+// This allows the application to return appropriate HTTP status codes and messages
+// when errors occur, making it easier to handle errors in a consistent way.
 use axum::{
     http::StatusCode,
     response::{IntoResponse, Response},
@@ -10,17 +15,6 @@ pub enum AppError {
     UserAlreadyExists(String),
     ConnectionFailed(String),
     InternalError(String),
-}
-
-impl AppError {
-    pub fn status_code(&self) -> StatusCode {
-        match self {
-            AppError::UserNotFound(_) => StatusCode::NOT_FOUND,
-            AppError::UserAlreadyExists(_) => StatusCode::CONFLICT,
-            AppError::ConnectionFailed(_) => StatusCode::BAD_REQUEST,
-            AppError::InternalError(_) => StatusCode::INTERNAL_SERVER_ERROR,
-        }
-    }
 }
 
 impl fmt::Display for AppError {
