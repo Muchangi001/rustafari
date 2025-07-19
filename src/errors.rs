@@ -1,8 +1,3 @@
-// This module defines custom error types for the application.
-// It includes error handling for user-related operations and connection issues.
-// It also implements the `IntoResponse` trait for converting errors into HTTP responses.
-// This allows the application to return appropriate HTTP status codes and messages
-// when errors occur, making it easier to handle errors in a consistent way.
 use axum::{
     http::StatusCode,
     response::{IntoResponse, Response},
