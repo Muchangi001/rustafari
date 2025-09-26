@@ -153,9 +153,7 @@ pub struct RecommendedConnection {
     pub connection_type: ConnectionType,
 }
 
-// Helper function to recommend connection type based on user profiles
 fn recommend_connection_type(user: &User, other: &User) -> ConnectionType {
-    // This is a simple heuristic - could be made more sophisticated
     let shared_interests = user.has_similar_interests(other);
     
     if shared_interests.len() > 3 {
